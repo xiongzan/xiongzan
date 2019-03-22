@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:application name="sc-web" />
+
+	<dubbo:registry address="zookeeper://120.79.35.243:2181?backup=120.78.195.137:2181,119.23.107.100:2181" />
+
+	<!-- <dubbo:registry address="zookeeper://192.168.89.163:2181?backup=192.168.89.161:2181,192.168.89.162:2181" 
+		/> --><!-- hgy -->
+
+	<!-- <dubbo:registry address="zookeeper://192.168.17.5:2181?backup=192.168.17.6:2181,192.168.17.7:2181" 
+		/> -->
+
+	<dubbo:reference check="false" id="dubboUserRestService"
+		interface="com.sc.dubbo.service.DubboUserRestService" timeout="10000" />
+	<dubbo:reference check="false" id="dubboVideoService"
+		interface="com.sc.dubbo.service.DubboVideoService" timeout="10000" />
+	<dubbo:reference check="false" id="dubboSolrService"
+		interface="com.sc.dubbo.service.DubboSolrService" timeout="10000" />
+	<dubbo:reference check="false" id="newsService"
+		interface="com.sc.dubbo.service.NewsService" timeout="10000" />
+	<dubbo:reference check="false" id="userService"
+		interface="com.sc.dubbo.service.UserService" timeout="10000" />
+	<dubbo:reference check="false" id="audioService"
+		interface="com.sc.dubbo.service.AudioService" timeout="10000" />
+	<dubbo:reference check="false" id="genresService"
+		interface="com.sc.dubbo.service.GenresService" timeout="10000" />
+	<dubbo:reference check="false" id="whatService"
+		interface="com.sc.dubbo.service.WhatService" timeout="10000" />
+</beans>
